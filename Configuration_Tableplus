@@ -1,0 +1,42 @@
+-- Creación de la tabla "users"
+CREATE TABLE users (
+  id_user int PRIMARY KEY AUTO_INCREMENT,
+  nombre_user varchar(25) NOT NULL,
+  email varchar(100) NOT NULL,
+  password varchar(30) NOT NULL
+);
+
+-- Creación de la tabla "imagenes"
+CREATE TABLE imagenes (
+  id_img int PRIMARY KEY AUTO_INCREMENT,
+  url varchar(255) NOT NULL
+);
+
+-- Creación de la tabla "secuencias"
+CREATE TABLE secuencias (
+  id_sec int PRIMARY KEY AUTO_INCREMENT,
+  nombre_sec varchar(100) NOT NULL,
+  id_user int,
+  FOREIGN KEY (id_user) REFERENCES users (id_user)
+);
+
+-- Creación de la tabla "sec_img"
+CREATE TABLE sec_img (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  id_img int,
+  id_sec int,
+  FOREIGN KEY (id_img) REFERENCES imagenes (id_img),
+  FOREIGN KEY (id_sec) REFERENCES secuencias (id_sec)
+);
+
+-- Creación de la tabla "videos"
+CREATE TABLE videos (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  url varchar(255) NOT NULL
+);
+
+
+
+
+
+
